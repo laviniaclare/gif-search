@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	</head>
+	<body>
+		<div>
+			<h1>Rhumbix Programming Test</h1>
+		</div>
+		<div>
+			{% with messages = get_flashed_messages() %}
+			  {% if messages %}
+			    <ul class="flashes">
+			    {% for message in messages %}
+			      <li>{{ message }}</li>
+			    {% endfor %}
+			    </ul>
+			  {% endif %}
+			{% endwith %}
+		</div>
+		<div>
+			{% from "_formhelpers.html" import render_field %}
+			<form method="post">
+			  <dl>
+			    <p>
+			    {{ render_field(form.search) }}
+			  </p></dl>
+			  <p><input type="submit" value="Go">
+			</p></form>
+
+		</div>
+	</body>	
+</html>
